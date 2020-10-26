@@ -1,0 +1,39 @@
+﻿@model List<ACME.Shared.Model.EmployeeModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee Details:</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Employee Number
+        </th>
+        <th>
+            Employment Date
+        </th>
+        <th>
+            Terminated Date
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TerminatedDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
+            </td>
+        </tr>
+    }
+</table>
